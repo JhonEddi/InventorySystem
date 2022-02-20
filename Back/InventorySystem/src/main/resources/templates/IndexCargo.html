@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Titulo</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1>Titulo</h1>
+        <div th:if="${cargos != null and !cargos.empty}">
+            <table border="1">
+                <tr>
+                    <th>ID</th>
+                    <th>Cargo</th>
+                </tr>
+                <tr th:each="cargo : ${cargos}">
+                    <td th:text="${cargo.idCargo}">Mostrar Descripcion:</td>
+                    <td th:text="${cargo.descripcion}">Mostrar Descripcion:</td>
+                </tr>
+            </table>
+        </div>
+        <div th:if="${cargos == null or cargos.empty}">
+            La lista de cargos está vacía
+        </div>
+    </body>
+</html>

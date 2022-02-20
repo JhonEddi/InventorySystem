@@ -14,6 +14,6 @@ public class CargoDTO implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idCargo;
-    @Column(name = "d_descripcion", nullable = false)
+    @Column(name = "d_descripcion", nullable = false, length = 30)
     private String descripcion;
 }

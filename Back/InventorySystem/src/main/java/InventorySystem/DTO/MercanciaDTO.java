@@ -15,7 +15,7 @@ public class MercanciaDTO implements Serializable{
     private static final long serialVersionUID = 1L;
     
     @Id
-    @Column(name = "id_mercancia")
+    @Column(name = "id_mercancia", length = 30)
     private String idMercancia;
     @Column(name = "q_cantidad", nullable = false)
     private int cantidad;
@@ -23,6 +23,7 @@ public class MercanciaDTO implements Serializable{
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     @JsonFormat(pattern = "yyyy-MM-dd")
     @Column(name = "f_creacion", nullable = false)
+    @Temporal(TemporalType.DATE)
     private Date fCreacion;
     
     @ManyToOne

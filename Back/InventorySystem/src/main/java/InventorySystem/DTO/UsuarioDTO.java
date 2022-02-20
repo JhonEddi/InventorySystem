@@ -16,9 +16,9 @@ public class UsuarioDTO implements Serializable{
     
     @Id
     private Long idUsuario;
-    @Column(name = "n_nombre", nullable = false)
+    @Column(name = "n_nombre", nullable = false, length = 25)
     private String nombre;
-    @Column(name = "n_apellido", nullable = false)
+    @Column(name = "n_apellido", nullable = false, length = 25)
     private String apellido;
     @Column(name = "a_edad")
     private int edad;
@@ -30,5 +30,6 @@ public class UsuarioDTO implements Serializable{
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     @JsonFormat(pattern = "yyyy-MM-dd")
     @Column(name = "f_ingreso", nullable = false)
+    @Temporal(TemporalType.DATE)
     private Date fIngreso;
 }

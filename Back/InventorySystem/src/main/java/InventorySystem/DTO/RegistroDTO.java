@@ -28,6 +28,6 @@ public class RegistroDTO implements Serializable{
     @Id
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    @Column(name = "f_modificacion", nullable = false)
+    @Column(name = "f_modificacion", nullable = false, updatable = true)
     private Date fModificacion;
 }

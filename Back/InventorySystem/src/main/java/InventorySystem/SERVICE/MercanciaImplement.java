@@ -35,8 +35,8 @@ public class MercanciaImplement implements MercanciaService{
 
     @Override
     @Transactional
-    public void guardar(MercanciaDTO mercancia) {
-        mercanciaDao.save(mercancia);
+    public MercanciaDTO guardar(MercanciaDTO mercancia) {
+        return mercanciaDao.save(mercancia);
     }
 
     @Override

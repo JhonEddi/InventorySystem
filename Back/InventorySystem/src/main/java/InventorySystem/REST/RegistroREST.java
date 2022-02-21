@@ -23,12 +23,14 @@ public class RegistroREST {
         return ResponseEntity.ok(registroService.listarRegistros());
     }
     
-    private ResponseEntity<List<RegistroDTO>> getAllRegistrosByUsuario(@PathVariable("idCargo") int idUsuario){
+    @GetMapping("{idUsuario}")
+    private ResponseEntity<List<RegistroDTO>> getAllRegistrosByUsuario(@PathVariable("idUsuario") int idUsuario){
         log.info("Ejecutando controlador Spring MVC");
         return ResponseEntity.ok(registroService.listarPorUsuario(idUsuario));
     }
     
-    private ResponseEntity<List<RegistroDTO>> getAllRegistrosByMercancia(@PathVariable("idCargo") String idMercancia){
+    @GetMapping("{idMercancia}")
+    private ResponseEntity<List<RegistroDTO>> getAllRegistrosByMercancia(@PathVariable("idMercancia") String idMercancia){
         log.info("Ejecutando controlador Spring MVC");
         return ResponseEntity.ok(registroService.listarPorMercancia(idMercancia));
     }

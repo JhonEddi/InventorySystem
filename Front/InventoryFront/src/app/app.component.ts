@@ -13,10 +13,10 @@ import { UsuarioService } from './services/usuario/usuario.service';
 export class AppComponent implements OnInit {
 
   mercanciaForm: FormGroup;
-  fCreacion : Date =new Date();
+  fCreacion: Date = new Date();
   usuarios: any;
   mercancias: any;
-  
+
 
   constructor(
     public fb: FormBuilder,
@@ -28,7 +28,7 @@ export class AppComponent implements OnInit {
 
   }
   ngOnInit(): void {
-    
+
 
     this.mercanciaForm = this.fb.group({
       idMercancia: ['', Validators.required],
@@ -37,25 +37,32 @@ export class AppComponent implements OnInit {
       usuario: ['', Validators.required],
     });;
 
-    this.usuarioService.getAllUsuarios().subscribe(resp=>{
+    this.usuarioService.getAllUsuarios().subscribe(resp => {
       this.usuarios = resp;
     },
-    error=>{console.error(error)}
-    )
+      error => { console.error(error) }
+    );
 
-    this.mercanciaForm.get('usuario').valueChanges.subscribe(value =>{
-      this.mercanciaService.getAllMercanciasByUsuario(value.idUsuario).subscribe(resp =>{
-        this.mercancias = resp;
-      })
-    })
+    this.mercanciaService.getAllMercancias().subscribe(resp => {
+      this.mercancias = resp;
+    },
+      error => { console.error(error) }
+    );
+
+    // this.mercanciaForm.get('usuario').valueChanges.subscribe(value => {
+    //   this.mercanciaService.getAllMercanciasByUsuario(value.idUsuario).subscribe(resp => {
+    //     this.mercancias = resp;
+    //   })
+    // })
 
   }
 
   guardar(): void {
-    this.mercanciaService.save(this.mercanciaForm.value).subscribe(resp =>{
-      
+    this.mercanciaService.save(this.mercanciaForm.value).subscribe(resp => {
+      this.mercanciaForm.reset();
+      this.mercancias.push(resp);
     },
-    error=>{console.error(error)}
+      error => { console.error(error) }
     )
   }
 

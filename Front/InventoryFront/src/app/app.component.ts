@@ -15,6 +15,7 @@ export class AppComponent implements OnInit {
   mercanciaForm: FormGroup;
   fCreacion : Date =new Date();
   usuarios: any;
+  mercancias: any;
   
 
   constructor(
@@ -41,6 +42,13 @@ export class AppComponent implements OnInit {
     },
     error=>{console.error(error)}
     )
+
+    this.mercanciaForm.get('usuario').valueChanges.subscribe(value =>{
+      this.mercanciaService.getAllMercanciasByUsuario(value.idUsuario).subscribe(resp =>{
+        this.mercancias = resp;
+      })
+    })
+
   }
 
   guardar(): void {

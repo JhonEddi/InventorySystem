@@ -18,6 +18,10 @@ export class MercanciaService {
     return this.httpClient.get(this.API_SERVER);
   }
 
+  public getAllMercanciasByUsuario(idUsuario): Observable<any> {
+    return this.httpClient.get(this.API_SERVER+idUsuario);
+  }
+
   public save(mercancia: any): Observable<any> {
     return this.httpClient.post(this.API_SERVER,mercancia);
   }

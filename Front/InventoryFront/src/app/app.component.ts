@@ -44,7 +44,11 @@ export class AppComponent implements OnInit {
   }
 
   guardar(): void {
-
+    this.mercanciaService.save(this.mercanciaForm.value).subscribe(resp =>{
+      
+    },
+    error=>{console.error(error)}
+    )
   }
 
 

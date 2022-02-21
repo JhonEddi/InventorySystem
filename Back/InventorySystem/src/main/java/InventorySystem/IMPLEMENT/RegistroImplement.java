@@ -1,7 +1,8 @@
-package InventorySystem.SERVICE;
+package InventorySystem.IMPLEMENT;
 
 import InventorySystem.DAO.RegistroDAO;
 import InventorySystem.DTO.RegistroDTO;
+import InventorySystem.SERVICE.RegistroService;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;

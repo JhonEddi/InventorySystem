@@ -1,7 +1,8 @@
-package InventorySystem.SERVICE;
+package InventorySystem.IMPLEMENT;
 
 import InventorySystem.DAO.CargoDAO;
 import InventorySystem.DTO.CargoDTO;
+import InventorySystem.SERVICE.CargoService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

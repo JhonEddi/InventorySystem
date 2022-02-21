@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CargoService } from 'src/app/services/cargo/cargo.service';
 import { MercanciaService } from 'src/app/services/mercancia/mercancia.service';
-import { RegistroService } from 'src/app/services/registro/registro.service';
 import { UsuarioService } from 'src/app/services/usuario/usuario.service';
 
 
@@ -23,7 +22,6 @@ export class MercanciaComponent implements OnInit {
     public fb: FormBuilder,
     public cargoService: CargoService,
     public mercanciaService: MercanciaService,
-    public registroService: RegistroService,
     public usuarioService: UsuarioService
   ) {
 

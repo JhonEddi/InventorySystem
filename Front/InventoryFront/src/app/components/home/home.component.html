@@ -1,1 +1,44 @@
-<p>home works!</p>
+<div>
+    <div class="formularioRegistro" style="margin-top: 10%">
+        <form [formGroup]="mercanciaForm">
+            <div class="row" >
+                <div class="form-group col-md-4 mb-2">
+                    <h3>Filtro por usuarios</h3>
+                </div>
+                <div class="form-group col-md-8 mb-2">
+                    <select name="usuario" id="usuario" formControlName="usuario" class="form-control">
+                        <option [ngValue]="item" *ngFor="let item of usuarios">
+                            {{ item.idUsuario }}
+                        </option>
+                    </select>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="tablaRegistro" style="margin-top: 10%">
+        <h2>Mercancias Registradas</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Cantidad</th>
+                    <th>Fecha</th>
+                    <th>Usuario</th>
+                    <th>Cargo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of mercancias">
+                    <td>{{ item.idMercancia }}</td>
+                    <td>{{ item.cantidad }}</td>
+                    <td>{{ item.fCreacion }}</td>
+                    <td>{{ item.usuario.nombre + " " + item.usuario.apellido }}</td>
+                    <td>{{ item.usuario.cargo.descripcion }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="container main-container">
+    <router-outlet></router-outlet>
+</div>

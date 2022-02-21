@@ -28,5 +28,5 @@ public class MercanciaDTO implements Serializable{
     
     @ManyToOne
     @JoinColumn(name = "id_usuario", nullable = false)
-    private UsuarioDTO usuario ;
+    private UsuarioDTO usuario;
 }

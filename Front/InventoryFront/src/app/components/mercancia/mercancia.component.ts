@@ -47,13 +47,6 @@ export class MercanciaComponent implements OnInit {
     },
       error => { console.error(error) }
     );
-
-    // this.mercanciaForm.get('usuario').valueChanges.subscribe(value => {
-    //   this.mercanciaService.getAllMercanciasByUsuario(value.idUsuario).subscribe(resp => {
-    //     this.mercancias = resp;
-    //   })
-    // })
-
   }
 
   guardar(): void {

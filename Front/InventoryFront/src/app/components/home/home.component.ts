@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { CargoService } from 'src/app/services/cargo/cargo.service';
 import { MercanciaService } from 'src/app/services/mercancia/mercancia.service';
 import { UsuarioService } from 'src/app/services/usuario/usuario.service';
 

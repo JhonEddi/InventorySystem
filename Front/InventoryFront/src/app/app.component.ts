@@ -36,7 +36,7 @@ export class AppComponent implements OnInit {
       usuario: ['', Validators.required],
     });;
 
-    this.usuarioService.getAllusuarios().subscribe(resp=>{
+    this.usuarioService.getAllUsuarios().subscribe(resp=>{
       this.usuarios = resp;
     },
     error=>{console.error(error)}

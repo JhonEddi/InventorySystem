@@ -32,4 +32,9 @@ public class RegistroREST {
         log.info("Ejecutando controlador Spring MVC");
         return ResponseEntity.ok(registroService.listarPorMercancia(idMercancia));
     }
+    
+    public String guardar(RegistroDTO registro){
+        registroService.guardar(registro);
+        return "redirect:/registro/";
+    }
 }

@@ -14,7 +14,7 @@ export class UsuarioService {
 
   ) { }
 
-  public getAllusuarios(): Observable<any> {
+  public getAllUsuarios(): Observable<any> {
     return this.httpClient.get(this.API_SERVER)
   }
 

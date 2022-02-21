@@ -1,53 +1,39 @@
 <div class="formularioRegistro">
-  <div class="row">
-    <div class="form-group col-md-6 mb-3">
-      <label>Id Usuario</label>
-      <select name="usuario" id="usuario" class="form-control">
-        <option [value]="item.id" *ngFor="let item of usuarios">
-          {{ item.idUsuario }}
-        </option>
-      </select>
-    </div>
-    <div class="form-group col-md-6 mb-3">
-      <!-- <label style="margin-top: 7%">
+    <div class="row">
+        <div class="form-group col-md-6 mb-3">
+            <label>Id Usuario</label>
+            <select name="usuario" id="usuario" class="form-control">
+                <option [ngValue]="item.id" *ngFor="let item of usuarios">
+                    {{ item.idUsuario }}
+                </option>
+            </select>
+        </div>
+        <div class="form-group col-md-6 mb-3">
+            <!-- <label style="margin-top: 7%">
         <option value="item.nombre" *ngFor="let item of usuarios">
           {{ item.nombre }}
         </option>
       </label> -->
+        </div>
     </div>
-  </div>
-  <h2>Crear Mercancia</h2>
-  <form [formGroup]="mercanciaForm" (ngSubmit)="guardar()">
-    <div class="form-group">
-      <label>Mercancia</label>
-      <input
-        type="text"
-        formControlName="idMercancia"
-        class="form-control"
-        placeholder="Ingresa Nombre"
-      />
-    </div>
-    <div class="form-group">
-      <label>Cantidad</label>
-      <input
-        type="number"
-        formControlName="cantidad"
-        class="form-control"
-        min="0"
-        placeholder="Ingresa Cantidad"
-      />
-    </div>
-    <div class="form-group">
-      <label>Fecha Creacion</label>
-      <input
-        type="date"
-        formControlName="fCreacion"
-        class="form-control"
-        max="{{ currentDate | date: 'yyyy-MM-dd' }}"
-      />
-    </div>
-    <button type="submit" class="btn btn-success">Guardar</button>
-  </form>
+    <h2>Crear Mercancia</h2>
+    <form [formGroup]="mercanciaForm" (ngSubmit)="guardar()">
+        <div class="form-group">
+            <label>Mercancia</label>
+            <input type="text" formControlName="idMercancia" class="form-control" placeholder="Ingresa Nombre" />
+        </div>
+        <div class="form-group">
+            <label>Cantidad</label>
+            <input type="number" formControlName="cantidad" class="form-control" min="0"
+                placeholder="Ingresa Cantidad" />
+        </div>
+        <div class="form-group">
+            <label>Fecha Creacion</label>
+            <input type="date" formControlName="fCreacion" class="form-control"
+                max="{{ currentDate | date: 'yyyy-MM-dd' }}" />
+        </div>
+        <button type="submit" class="btn btn-success">Guardar</button>
+    </form>
 </div>
 
 <router-outlet></router-outlet>

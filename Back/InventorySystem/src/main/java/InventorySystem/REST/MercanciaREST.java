@@ -37,7 +37,7 @@ public class MercanciaREST {
         try {
             MercanciaDTO mercanciaGuardada = mercanciaService.guardar(mercancia);
             return ResponseEntity.created(new URI("/mercancia/"+mercanciaGuardada.getIdMercancia())).body(mercanciaGuardada);
-        } catch (URISyntaxException ex) {
+        } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
         }
     }

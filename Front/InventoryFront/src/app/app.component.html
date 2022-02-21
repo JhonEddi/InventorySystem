@@ -1,76 +1,22 @@
-<div class="formularioRegistro">
-    <form [formGroup]="mercanciaForm" (ngSubmit)="guardar()">
-        <h1>Sesion</h1>
-        <div class="row">
-            <div class="form-group col-md-6 mb-3">
-                <label>Seleccione Usuario</label>
-                <select name="usuario" id="usuario" formControlName="usuario" class="form-control">
-                    <option [ngValue]="item" *ngFor="let item of usuarios">
-                        {{ item.idUsuario }}
-                    </option>
-                </select>
-            </div>
-            <!-- Filtro(conecta usuarios con mercancias) -->
-            <!-- <div class="form-group col-md-6 mb-3">
-                <label style="margin-top: 7%">
-            <option value="item.nombre" *ngFor="let item of mercancias">
-              {{ item.idMercancia }}
-            </option>
-          </label>
-            </div> -->
-            <!-- <div class="form-group col-md-6 mb-3">
-                <label>Nombre Merc</label>
-                <select name="idMercancia" id="idMercancia" formControlName="idMercancia" class="form-control">
-                    <option [ngValue]="item" *ngFor="let item of mercancias">
-                        {{ item.idMercancia }}
-                    </option>
-                </select>
-            </div> -->
-        </div>
-        <h2>Crear Mercancia</h2>
-        <div class="form-group">
-            <label>Mercancia</label>
-            <input type="text" formControlName="idMercancia" class="form-control" placeholder="Ingresa Nombre" />
-        </div>
-        <div class="form-group">
-            <label>Cantidad</label>
-            <input type="number" formControlName="cantidad" class="form-control" min="0"
-                placeholder="Ingresa Cantidad" />
-        </div>
-        <div class="form-group">
-            <label>Fecha Creacion</label>
-            <input type="date" formControlName="fCreacion" class="form-control"
-                max="{{ fCreacion | date: 'yyyy-MM-dd' }}" />
-        </div>
-        <button type="submit" class="btn btn-success" [disabled]="mercanciaForm.invalid">Guardar</button>
-    </form>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a style="margin-left: 10px;" class="navbar-brand" href="#">InventorySystem</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="/home">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/mercancia">Agregar Mercancia</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="">Editar/Eliminar Mercancia</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+<div class="container main-container">
+    <router-outlet></router-outlet>
 </div>
-
-<div class="tablaRegistro">
-    <h2>Mercancias Registradas</h2>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Nombre</th>
-                <th>Cantidad</th>
-                <th>Fecha</th>
-                <th>Usuario</th>
-                <th>Opciones</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor = "let item of mercancias">
-                <td>{{item.idMercancia}}</td>
-                <td>{{item.cantidad}}</td>
-                <td>{{item.fCreacion}}</td>
-                <td>{{item.usuario.nombre +"    "+ item.usuario.apellido}}</td>
-                <td>
-                    <button style="margin-right: 2%" type="button" class="btn btn-secondary">Editar</button>
-                    <button type="button" class="btn btn-danger">Eliminar</button> 
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</div>
-
-<router-outlet></router-outlet>

@@ -11,10 +11,10 @@ export class UsuarioService {
   constructor(
 
     private httpClient: HttpClient
-    
+
   ) { }
 
-  public getAllusuarios(): Observable<any>{
+  public getAllusuarios(): Observable<any> {
     return this.httpClient.get(this.API_SERVER)
   }
 

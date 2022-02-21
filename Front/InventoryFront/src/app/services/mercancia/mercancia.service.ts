@@ -14,6 +14,9 @@ export class MercanciaService {
 
   ) { }
 
+  public getAllMercancias(): Observable<any> {
+    return this.httpClient.get(this.API_SERVER);
+  }
 
   public save(mercancia: any): Observable<any> {
     return this.httpClient.post(this.API_SERVER,mercancia);

@@ -13,7 +13,7 @@ import { UsuarioService } from './services/usuario/usuario.service';
 export class AppComponent implements OnInit {
 
   mercanciaForm: FormGroup;
-  currentDate : Date =new Date();
+  fCreacion : Date =new Date();
   usuarios: any;
   
 

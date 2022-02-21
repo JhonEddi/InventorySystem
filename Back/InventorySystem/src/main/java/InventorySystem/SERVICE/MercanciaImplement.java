@@ -22,7 +22,7 @@ public class MercanciaImplement implements MercanciaService{
 
     @Override
     @Transactional(readOnly = true)
-    public List<MercanciaDTO> listarPorUsuario(Long idUsuario) {
+    public List<MercanciaDTO> listarPorUsuario(int idUsuario) {
         List<MercanciaDTO> mercanciasRespuesta = new ArrayList<>();
         List<MercanciaDTO> mercancias = (List<MercanciaDTO>) mercanciaDao.findAll();
         for (int i = 0; i < mercancias.size(); i++) {

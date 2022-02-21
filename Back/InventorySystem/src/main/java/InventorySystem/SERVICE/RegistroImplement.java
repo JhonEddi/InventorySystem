@@ -22,7 +22,7 @@ public class RegistroImplement implements RegistroService{
 
     @Override
     @Transactional(readOnly = true)
-    public List<RegistroDTO> listarPorUsuario(Long idUsuario) {
+    public List<RegistroDTO> listarPorUsuario(int idUsuario) {
         List<RegistroDTO> registrosRespuesta = new ArrayList<>();
         List<RegistroDTO> registros = (List<RegistroDTO>) registroDao.findAll();
         for (int i = 0; i < registros.size(); i++) {

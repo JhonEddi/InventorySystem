@@ -22,7 +22,7 @@ public class UsuarioImplement implements UsuarioService{
 
     @Override
     @Transactional(readOnly = true)
-    public List<UsuarioDTO> listarPorCargo(Long idCargo) {
+    public List<UsuarioDTO> listarPorCargo(int idCargo) {
         List<UsuarioDTO> usuariosRespuesta = new ArrayList<>();
         List<UsuarioDTO> usuarios = (List<UsuarioDTO>) usuarioDao.findAll();
         for (int i = 0; i < usuarios.size(); i++) {

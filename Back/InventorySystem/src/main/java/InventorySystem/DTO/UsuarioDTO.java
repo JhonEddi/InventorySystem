@@ -15,7 +15,7 @@ public class UsuarioDTO implements Serializable{
     private static final long serialVersionUID = 1L;
     
     @Id
-    private Long idUsuario;
+    private int idUsuario;
     @Column(name = "n_nombre", nullable = false, length = 25)
     private String nombre;
     @Column(name = "n_apellido", nullable = false, length = 25)

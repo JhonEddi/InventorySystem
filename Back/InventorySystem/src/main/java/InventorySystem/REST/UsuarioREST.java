@@ -24,7 +24,7 @@ public class UsuarioREST {
     }
     
     @GetMapping("{idCargo}")
-    private ResponseEntity<List<UsuarioDTO>> getAllUsuariosByCargo(@PathVariable("idCargo") Long idCargo){
+    private ResponseEntity<List<UsuarioDTO>> getAllUsuariosByCargo(@PathVariable("idCargo") int idCargo){
         log.info("Ejecutando controlador Spring MVC");
         return ResponseEntity.ok(usuarioService.listarPorCargo(idCargo));
     }

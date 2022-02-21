@@ -27,7 +27,7 @@ public class MercanciaREST {
     }
     
     @GetMapping("{idUsuario}")
-    private ResponseEntity<List<MercanciaDTO>> getAllMercanciasByUsuario(@PathVariable("idUsuario") Long idUsuario){
+    private ResponseEntity<List<MercanciaDTO>> getAllMercanciasByUsuario(@PathVariable("idUsuario") int idUsuario){
         log.info("Ejecutando controlador Spring MVC");
         return ResponseEntity.ok(mercanciaService.listarPorUsuario(idUsuario));
     }

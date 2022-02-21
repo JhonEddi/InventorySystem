@@ -23,7 +23,7 @@ public class RegistroREST {
         return ResponseEntity.ok(registroService.listarRegistros());
     }
     
-    private ResponseEntity<List<RegistroDTO>> getAllRegistrosByUsuario(@PathVariable("idCargo") Long idUsuario){
+    private ResponseEntity<List<RegistroDTO>> getAllRegistrosByUsuario(@PathVariable("idCargo") int idUsuario){
         log.info("Ejecutando controlador Spring MVC");
         return ResponseEntity.ok(registroService.listarPorUsuario(idUsuario));
     }

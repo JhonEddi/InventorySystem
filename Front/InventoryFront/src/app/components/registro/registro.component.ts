@@ -31,10 +31,10 @@ export class RegistroComponent implements OnInit {
       idMercancia: ['', Validators.required],
       cantidad: ['', Validators.required],
       fCreacion: ['', Validators.required],
+      usuario: ['', Validators.required],
     });;
 
     this.eliminarForm = this.fb.group({
-      // idMercancia: ['', Validators.required],
       usuario: ['', Validators.required],
     })
 
@@ -54,7 +54,7 @@ export class RegistroComponent implements OnInit {
     },
       error => { console.error(error) }
     );
-    
+
     this.eliminarForm.get('usuario').valueChanges.subscribe(value => {
       this.mercanciaService.getAllMercanciasByUsuario(value.idUsuario).subscribe(resp => {
         this.mercancias = resp;
@@ -71,12 +71,21 @@ export class RegistroComponent implements OnInit {
     )
   }
 
-  eliminar(id){
-    this.mercanciaService.delete(id).subscribe(res=> {
-      this.mercanciaService.getAllMercancias().subscribe(response=>this.mercancias=response)
-    }, 
-    error => { console.error(error) }
+  eliminar(id) {
+    this.mercanciaService.delete(id).subscribe(res => {
+      this.mercanciaService.getAllMercancias().subscribe(response => this.mercancias = response)
+    },
+      error => { console.error(error) }
     )
+  }
+
+  editar(mercancia) {
+    this.mercanciaForm.setValue({
+      idMercancia: mercancia.idMercancia,
+      cantidad: mercancia.cantidad,
+      fCreacion: mercancia.fCreacion,
+      usuario: mercancia.usuario,
+    })
   }
 
 }

@@ -44,6 +44,6 @@ public class MercanciaREST {
     @RequestMapping(value = "delete/{idMercancia}", method=RequestMethod.DELETE)
     public String eliminar(MercanciaDTO mercancia) {
         mercanciaService.eliminar(mercancia);
-        return "/registro";
+        return null;
     }
 }

@@ -6,7 +6,6 @@
                 <div class="form-group col-md-6 mb-3">
                     <label>Seleccione Usuario</label>
                     <select name="usuario" id="usuario" formControlName="usuario" class="form-control">
-                        <option>Sin seleccionar</option>
                         <option [ngValue]="item" *ngFor="let item of usuarios">
                             {{ item.idUsuario }}
                         </option>
@@ -14,8 +13,7 @@
                 </div>
                 <div class="form-group col-md-6 mb-3" style="background-color: rgba(255, 86, 86, 0.548);">
                     <div style="margin-top: 10px;">
-                        <font size="4">Se debe seleccionar un usuario para habilitar la eliminación de la
-                            mercancia</font>
+                        <font size="4">Se debe seleccionar un usuario para habilitar la opción "Eliminar" mercancia</font>
                     </div>
                 </div>
             </div>
@@ -23,6 +21,14 @@
 
         <form [formGroup]="mercanciaForm" (ngSubmit)="guardar()">
             <h2>Crear Mercancia</h2>
+            <div class="form-group">
+                <label>IdUsuario</label>
+                <select name="usuario" id="usuario" formControlName="usuario" class="form-control">
+                    <option [ngValue]="item" *ngFor="let item of usuarios">
+                        {{ item.idUsuario }}
+                    </option>
+                </select>
+            </div>
             <div class="form-group">
                 <label>Mercancia</label>
                 <input type="text" formControlName="idMercancia" class="form-control" placeholder="Ingresa Nombre" />
@@ -65,9 +71,7 @@
                     <td>{{ item.fCreacion }}</td>
                     <td>{{ item.usuario.nombre + " " + item.usuario.apellido }}</td>
                     <td>
-                        <button style="margin-right: 2%" type="button" class="btn btn-secondary">
-                            Editar
-                        </button>
+                        <button style="margin-right: 2%" type="button" class="btn btn-secondary" (click)="editar(item)">Editar</button>
                         <button type="button" class="btn btn-danger" (click)="eliminar(item.idMercancia)" [disabled]="eliminarForm.invalid" onclick="document.location.reload()">Eliminar</button>
                     </td>
                 </tr>

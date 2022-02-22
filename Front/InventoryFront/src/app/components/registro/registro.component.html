@@ -6,6 +6,7 @@
                 <div class="form-group col-md-6 mb-3">
                     <label>Seleccione Usuario</label>
                     <select name="usuario" id="usuario" formControlName="usuario" class="form-control">
+                        <option>Sin seleccionar</option>
                         <option [ngValue]="item" *ngFor="let item of usuarios">
                             {{ item.idUsuario }}
                         </option>

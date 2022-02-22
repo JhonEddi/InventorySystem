@@ -42,7 +42,6 @@
                     <th>Cantidad</th>
                     <th>Fecha</th>
                     <th>Usuario</th>
-                    <th>Opciones</th>
                 </tr>
             </thead>
             <tbody>
@@ -51,12 +50,6 @@
                     <td>{{ item.cantidad }}</td>
                     <td>{{ item.fCreacion }}</td>
                     <td>{{ item.usuario.nombre + " " + item.usuario.apellido }}</td>
-                    <td>
-                        <button style="margin-right: 2%" type="button" class="btn btn-secondary">
-                            Editar
-                        </button>
-                        <button type="button" class="btn btn-danger">Eliminar</button>
-                    </td>
                 </tr>
             </tbody>
         </table>

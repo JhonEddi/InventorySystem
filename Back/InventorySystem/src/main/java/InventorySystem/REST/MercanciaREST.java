@@ -3,7 +3,6 @@ package InventorySystem.REST;
 import InventorySystem.DTO.MercanciaDTO;
 import InventorySystem.SERVICE.MercanciaService;
 import java.net.URI;
-import java.net.URISyntaxException;
 import java.util.List;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,5 +39,11 @@ public class MercanciaREST {
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
         }
+    }
+    
+    @RequestMapping(value = "delete/{idMercancia}", method=RequestMethod.DELETE)
+    public String eliminar(MercanciaDTO mercancia) {
+        mercanciaService.eliminar(mercancia);
+        return "/registro";
     }
 }

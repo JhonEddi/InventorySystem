@@ -25,4 +25,8 @@ export class MercanciaService {
   public save(mercancia: any): Observable<any> {
     return this.httpClient.post(this.API_SERVER,mercancia);
   }
+
+  public delete(id): Observable<any> {
+    return this.httpClient.delete(this.API_SERVER + "delete/" + id)
+  }
 }

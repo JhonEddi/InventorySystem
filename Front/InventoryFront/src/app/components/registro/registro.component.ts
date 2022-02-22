@@ -71,4 +71,12 @@ export class RegistroComponent implements OnInit {
     )
   }
 
+  eliminar(id){
+    this.mercanciaService.delete(id).subscribe(res=> {
+      this.mercanciaService.getAllMercancias().subscribe(response=>this.mercancias=response)
+    }, 
+    error => { console.error(error) }
+    )
+  }
+
 }

@@ -67,7 +67,7 @@
                         <button style="margin-right: 2%" type="button" class="btn btn-secondary">
                             Editar
                         </button>
-                        <button type="button" class="btn btn-danger" [disabled]="eliminarForm.invalid">Eliminar</button>
+                        <button type="button" class="btn btn-danger" (click)="eliminar(item.idMercancia)" [disabled]="eliminarForm.invalid" onclick="document.location.reload()">Eliminar</button>
                     </td>
                 </tr>
             </tbody>

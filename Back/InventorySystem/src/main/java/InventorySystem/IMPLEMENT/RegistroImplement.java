@@ -49,8 +49,8 @@ public class RegistroImplement implements RegistroService{
 
     @Override
     @Transactional
-    public void guardar(RegistroDTO registro) {
-        registroDao.save(registro);
+    public RegistroDTO guardar(RegistroDTO registro) {
+        return registroDao.save(registro);
     }
     
 }

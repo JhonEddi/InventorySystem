@@ -2,9 +2,11 @@ package InventorySystem.REST;
 
 import InventorySystem.DTO.RegistroDTO;
 import InventorySystem.SERVICE.RegistroService;
+import java.net.URI;
 import java.util.List;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -36,9 +38,12 @@ public class RegistroREST {
     }
 
     @PostMapping
-    public String guardar(RegistroDTO registro) {
-        registroService.guardar(registro);
-//        return "redirect:/registro/";
-        return null;
+    private ResponseEntity<RegistroDTO> saveRegistro(@RequestBody RegistroDTO registro){
+        try {
+            RegistroDTO registroGuardado = registroService.guardar(registro);
+            return ResponseEntity.created(new URI("/registro/"+registroGuardado.getMercancia().getIdMercancia())).body(registroGuardado);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+        }
     }
 }

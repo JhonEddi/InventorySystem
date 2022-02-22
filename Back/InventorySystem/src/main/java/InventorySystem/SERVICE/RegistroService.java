@@ -8,5 +8,5 @@ public interface RegistroService {
     public List<RegistroDTO> listarRegistros();
     public List<RegistroDTO> listarPorUsuario(int idUsuario);
     public List<RegistroDTO> listarPorMercancia(String idMercancia);
-    public void guardar(RegistroDTO registro);
+    public RegistroDTO guardar(RegistroDTO registro);
 }

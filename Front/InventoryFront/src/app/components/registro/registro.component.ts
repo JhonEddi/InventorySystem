@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CargoService } from 'src/app/services/cargo/cargo.service';
 import { MercanciaService } from 'src/app/services/mercancia/mercancia.service';
 import { UsuarioService } from 'src/app/services/usuario/usuario.service';
+import { RegistroService } from 'src/app/services/registro/registro.service';
 
 @Component({
   selector: 'app-registro',
@@ -22,7 +23,8 @@ export class RegistroComponent implements OnInit {
     public fb: FormBuilder,
     public cargoService: CargoService,
     public mercanciaService: MercanciaService,
-    public usuarioService: UsuarioService
+    public usuarioService: UsuarioService,
+    public registroService: RegistroService
   ) {
 
   }
@@ -86,6 +88,15 @@ export class RegistroComponent implements OnInit {
       fCreacion: mercancia.fCreacion,
       usuario: mercancia.usuario,
     })
+  }
+
+  guardarRegistro(): void {
+    this.registroService.saveRegistro(this.mercanciaForm.value).subscribe(resp => {
+      this.mercanciaForm.reset();
+      this.mercancias.push(resp);
+    },
+      error => { console.error(error) }
+    )
   }
 
 }

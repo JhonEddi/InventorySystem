@@ -19,7 +19,7 @@
             </div>
         </form>
 
-        <form [formGroup]="mercanciaForm" (ngSubmit)="guardar()">
+        <form [formGroup]="mercanciaForm" (ngSubmit)="guardar()" (ngSubmit)="guardarRegistro()">
             <h2>Crear Mercancia</h2>
             <div class="form-group">
                 <label>IdUsuario</label>
@@ -45,7 +45,7 @@
             </div>
             <div class="btn-group" role="group">
                 <button type="button" class="btn btn-primary" onclick="document.location.reload()">Mostrar Datos</button>
-                <button type="submit" class="btn btn-secondary" [disabled]="mercanciaForm.invalid">
+                <button type="submit" class="btn btn-secondary" [disabled]="mercanciaForm.invalid" onclick="document.location.reload()">
                     Guardar
                 </button>
             </div>

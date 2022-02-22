@@ -18,4 +18,9 @@ export class RegistroService {
   public getAllRegistros(): Observable<any> {
     return this.httpClient.get(this.API_SERVER)
   }
+
+  public saveRegistro(registro: any): Observable<any> {
+    return this.httpClient.post(this.API_SERVER,registro);
+  }
+
 }
